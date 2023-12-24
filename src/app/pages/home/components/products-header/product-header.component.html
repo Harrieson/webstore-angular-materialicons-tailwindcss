@@ -16,10 +16,19 @@
                     <mat-icon>expand_more</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button (click)="onItemsUpdated(itemsShowCount)" mat-menu-item>80</button>
-                    <button (click)="onItemsUpdated(itemsShowCount)" mat-menu-item>120</button>
+                    <button (click)="onItemsUpdated(80)" mat-menu-item>80</button>
+                    <button (click)="onItemsUpdated(120)" mat-menu-item>120</button>
                 </mat-menu>
             </div>
+            <button (click)="onColumnsUpdated(1)">
+                <mat-icon>view_list</mat-icon>
+            </button>
+            <button (click)="onColumnsUpdated(3)">
+                <mat-icon>view_module</mat-icon>
+            </button>
+            <button (click)="onColumnsUpdated(5)">
+                <mat-icon>view_comfy</mat-icon>
+            </button>
         </div>
     </div>
 </mat-card>
