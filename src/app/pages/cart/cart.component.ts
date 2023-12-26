@@ -11,8 +11,24 @@ export class CartComponent implements OnInit {
     product: 'https://via.placeholder.com/150',
     name: 'Shoes',
     price: 320,
-    quantity: 4,
+    quantity: 1,
     id: 22,
+    // total: 1
+  },
+  {
+    product: 'https://via.placeholder.com/150',
+    name: 'Shoes',
+    price: 320,
+    quantity: 1,
+    id: 23,
+    // total: 1
+  },
+  {
+    product: 'https://via.placeholder.com/150',
+    name: 'Shoes',
+    price: 320,
+    quantity: 1,
+    id: 24,
     // total: 1
   }
 ]};
@@ -30,6 +46,9 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.datastore = this.cart.items;
+  }
+  getTotal(items: Array<CartItem>): number {
+    return items.map((item) => item.price * item.quantity).reduce((prev, current) => prev + current, 0);
   }
 
 }

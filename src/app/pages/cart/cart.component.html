@@ -13,37 +13,55 @@
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
             <td mat-cell *matCellDef="let element">
-                <p class="truncate max-w-xs">{{element.name}}</p>
+                <span class="truncate max-w-xs block">{{element.name}}</span>
             </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef>Price</th>
             <td mat-cell *matCellDef="let element">
-                <p class="truncate max-w-xs">{{element.price}}</p>
+                {{element.price | currency: 'Kes'}}
             </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Quantity</th>
             <td mat-cell *matCellDef="let element">
-                <p class="truncate max-w-xs">{{element.quantity}}</p>
+                <button mat-icon-button class="text-red-400">
+                    <mat-icon>remove</mat-icon>
+                </button>
+                <span>{{element.quantity}}</span>
+                <button mat-icon-button class="text-green-600">
+                    <mat-icon>add</mat-icon>
+                </button>
             </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="total">
             <th mat-header-cell *matHeaderCellDef>Total</th>
             <td mat-cell *matCellDef="let element">
-                <p class="truncate max-w-xs">{{element.total}}</p>
+                {{ (element.quantity * element.price) | currency: 'Kes'}}
             </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef>
+                <span class="font-bold py-5 block">
+                    {{getTotal(cart.items) | currency: 'Kes'}}
+                </span>
+            </td>
         </ng-container>
         <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <th mat-header-cell *matHeaderCellDef>
+                <button mat-raised-button color="warn" class="float-right">
+                    Clear All
+                </button>
+            </th>
             <td mat-cell *matCellDef="let element">
-                <p class="truncate max-w-xs">{{element.action}}</p>
+                <button mat-mini-fab color="warn" class="float-right">
+                    <mat-icon>close</mat-icon>
+                </button>
             </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef>
+                <button mat-raised-button  class="float-right bg-green-500"> Proceed to checkout<mat-icon>arrow_right</mat-icon></button>
+            </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
