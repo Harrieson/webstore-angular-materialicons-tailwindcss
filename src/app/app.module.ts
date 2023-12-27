@@ -18,11 +18,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { FiltersComponent } from './pages/home/components/filters/filters.component';
 import { ProductBoxComponent } from './pages/home/components/product-box/product-box.component';
-import { CartComponent } from './pages/cart/cart.component';
+import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { CartComponent } from './pages/cart/cart.component';
     MatSnackBarModule,
 
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
