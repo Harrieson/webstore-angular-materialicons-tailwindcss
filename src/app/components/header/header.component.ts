@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cart, CartItem } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -6,7 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
   private _cart: Cart = { items: [] };
   itemsQuantity = 0;
 
@@ -23,10 +23,12 @@ export class HeaderComponent implements OnInit {
   }
   constructor(private cartService: CartService ) { }
 
-  getTotal(items: CartItem[]): number{
+  getTotal(items: Array<CartItem>): number{
     return this.cartService.getTotal(items)
   }
-  ngOnInit(): void {
+  
+  onClearCart() {
+    this.cartService.clearCart();
   }
 
 }
