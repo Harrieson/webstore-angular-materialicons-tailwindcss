@@ -6,22 +6,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Navigate to root/of/the/project/${server} and run npm install to install mini-server dependencies
+Navigate to the route to install the project dependencies. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Run project to text functionality.
+ng serve in the route folder and npm start in the server folder.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Env Variables.
 
-## Running unit tests
+In the server/server.js replace the stripe_secret_key with your stripe account key. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+In the src/app/pages/cart.component.ts replace stripe_public_shareable_key with your stripe_account pk_key
 
-## Running end-to-end tests
+## Test the functionality.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
