@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HttpClientModule } from '@angular/common/http';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -24,6 +25,7 @@ import { ProductBoxComponent } from './pages/home/components/product-box/product
 import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CartService } from './services/cart.service';
+import { StoreService } from './services/store.service';
 
 @NgModule({
   declarations: [
@@ -51,9 +53,10 @@ import { CartService } from './services/cart.service';
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
+    HttpClientModule
 
   ],
-  providers: [CartService],
+  providers: [CartService, StoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
